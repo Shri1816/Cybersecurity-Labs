@@ -1,0 +1,70 @@
+NMAP SCANNING LAB – COMMANDS & PURPOSE
+Target: Windows VM (192.168.56.101)
+Attacker: Kali Linux
+
+---------------------------------------------------
+01) Windows IP Address Discovery
+---------------------------------------------------
+ip a
+Purpose:
+Identify Kali network interfaces and confirm lab network IP range.
+
+---------------------------------------------------
+02) Connectivity Test (Ping Test)
+---------------------------------------------------
+ping 192.168.56.101
+Purpose:
+Verify attacker machine can communicate with Windows target.
+
+---------------------------------------------------
+03) Live Host Discovery
+---------------------------------------------------
+nmap -sn 192.168.56.0/24
+Purpose:
+Discover active machines in the lab network.
+
+---------------------------------------------------
+04) Simple Port Scan (Top 1000 Ports)
+---------------------------------------------------
+nmap 192.168.56.101
+Purpose:
+Identify commonly open ports on the Windows machine.
+
+---------------------------------------------------
+05) Software / Service Version Detection
+---------------------------------------------------
+nmap -sV 192.168.56.101
+Purpose:
+Detect services and software versions running on open ports.
+
+---------------------------------------------------
+06) Operating System Detection
+---------------------------------------------------
+sudo nmap -O 192.168.56.101
+Purpose:
+Identify the operating system of the target machine.
+
+---------------------------------------------------
+07) Aggressive Scan (Full Recon)
+---------------------------------------------------
+sudo nmap -A 192.168.56.101
+Purpose:
+Perform advanced detection including:
+• OS detection
+• Version detection
+• Script scanning
+• Traceroute
+
+---------------------------------------------------
+08) Full Port Scan (All 65535 Ports)
+---------------------------------------------------
+sudo nmap -p- 192.168.56.101
+Purpose:
+Scan every possible port to discover hidden services.
+
+---------------------------------------------------
+09) Stealth Scan (Firewall Detection)
+---------------------------------------------------
+sudo nmap -sS 192.168.56.102
+Purpose:
+Perform stealth SYN scan to bypass basic firewall detection.
